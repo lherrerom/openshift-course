@@ -10,4 +10,9 @@ rules:
       - ''
     resources:
       - services
+  - verbs:
+      - create
+    apiGroups:
+      - apps
+    resources:
       - deployments
