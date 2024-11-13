@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: phpinfo-helm-lourdes
+spec:
+  destination:
+    namespace: phpinfo-helm-lourdes
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: phpinfo/helm
+    repoURL: https://github.com/lherrerom/openshift-course.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
